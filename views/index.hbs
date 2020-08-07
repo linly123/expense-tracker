@@ -1,3 +1,32 @@
-<ul class="list-group">
-  <li class="list-group-item"> <i class="fa fa-cutlery" aria-hidden="true"></i>Cras justo odio</li>
-</ul>
+<div class="record-container">
+  <div class='calculate-container'>
+    <div>總金額：</div>
+    <div></div>
+  </div>
+  <ul class="list-group">
+    {{#each record}}
+    <div class="item-container">
+      <div class='list-item'>
+        <li class="list-group-item-secondary">
+          <div class="expense-item">
+            <div class='name-container'>
+              <i class="fa fa-cutlery" aria-hidden="true"></i>
+              <div>
+                <div class='show-item'>{{this.name}}</div>
+                <div class='show-date'>{{this.date}}</div>
+              </div>
+            </div>
+            <div>{{this.amount}}</div>
+          </div>
+        </li>
+      </div>
+      <div class='features'>
+        <a href="/record/:id/edit" class="revise-item">修改</a>
+        <a href="#" class="delete-item">刪除</a>
+      </div>
+    </div>
+    {{/each}}
+  </ul>
+  <button type="button" class="btn btn-danger"><a href="/record/new">新增支出</a></button>
+
+</div>
