@@ -1,7 +1,21 @@
 <div class="record-container">
+  <form action="/" method="get" id="filterForm" onchange="search()">
+    <select name="category" id="category-select">
+      <option>選擇類別</option>
+      <option value="">所有</option>
+      {{#each categories}}
+      <option value="{{this.category}}">{{this.category}}</option>
+      {{/each}}
+    </select>
+  </form>
   <div class='calculate-container'>
-    <div>總金額：</div>
-    <div></div>
+    <div>
+      <h5 class="total-amount">總金額：</h5>
+    </div>
+    <div>
+
+      <h1 class="show-amount">{{totalAmount}}</h1>
+    </div>
   </div>
   <ul class="list-group">
     {{#each record}}
@@ -10,7 +24,11 @@
         <li class="list-group-item-secondary">
           <div class="expense-item">
             <div class='name-container'>
-              <i class="fa fa-cutlery" aria-hidden="true"></i>
+              {{#each ../categories}}
+              {{#if (isEqual ../category this.category)}}
+              <i class="{{this.iconName}}" aria-hidden="true"></i>
+              {{/if}}
+              {{/each}}
               <div>
                 <div class='show-item'>{{this.name}}</div>
                 <div class='show-date'>{{this.date}}</div>
@@ -21,12 +39,21 @@
         </li>
       </div>
       <div class='features'>
-        <a href="/record/:id/edit" class="revise-item">修改</a>
-        <a href="#" class="delete-item">刪除</a>
+        <a href="/record/{{this._id}}/edit" class="revise-item">修改</a>
+        <form action="/record/{{this._id}}?_method=DELETE" method="POST" style="display: inline;">
+          <button class="btn delete-btn" type="submit">刪除</button>
+        </form>
       </div>
     </div>
     {{/each}}
   </ul>
-  <button type="button" class="btn btn-danger"><a href="/record/new">新增支出</a></button>
-
+  <div class="create-button">
+    <button type="button" class="btn create-btn"><a href="/record/new">新增支出</a></button>
+  </div>
 </div>
+
+<script>
+  function search() {
+    document.querySelector("#filterForm").submit();
+  }
+</script>

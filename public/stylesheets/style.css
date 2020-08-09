@@ -8,7 +8,7 @@
 
 .show-item {
   font-size: 20px;
-  color: brown;
+  color: grey;
 }
 
 .fa-cutlery {
@@ -34,7 +34,9 @@
   width: 45%;
   text-align: left;
   font-size: 20px;
-  padding-left: 30px;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
 }
 
 .features a {
@@ -55,4 +57,92 @@
   list-style: none;
   border-radius: 10px;
   margin-bottom: 10px;
+}
+
+.calculate-container {
+  display: flex;
+  justify-content: space-between;
+  width: 55%;
+}
+
+.show-amount {
+  color: orange;
+  font-size: 60px;
+}
+
+.total-amount {
+  color: lightgrey;
+}
+
+.custom-select select {
+  background-color: #0563af;
+  color: white;
+  padding: 12px;
+  width: 250px;
+  border: none;
+  font-size: 20px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+}
+
+.custom-select::before {
+  content: "\f13a";
+  font-family: FontAwesome;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  font-size: 28px;
+  line-height: 45px;
+  color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.custom-select:hover::before {
+  color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.custom-select select option {
+  padding: 30px;
+}
+
+.create-btn {
+  width: 120px;
+  background-color: orange;
+  text-decoration: none;
+  margin: 30px;
+}
+
+.create-button {
+  width: 55%;
+  display: flex;
+  justify-content: center;
+}
+
+.create-btn a {
+  color: white;
+}
+
+.delete-btn {
+  text-decoration: none;
+  font-size: 20px;
+  color: gray;
+}
+
+.name-container i {
+  font-size: 30px;
+  margin-right: 25px;
+  max-width: 20px;
+}
+
+#category-select {
+  width: 200px;
+  height: 40px;
+  margin-bottom: 40px;
 }
